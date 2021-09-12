@@ -4,10 +4,7 @@ body {
 }
 .search-field {
   border: none;
-  border-radius: 50px;
-  padding: 5px;
   outline: none;
-  
 }
 .search-field:hover {
   outline: none;
@@ -62,7 +59,13 @@ body {
   padding-right: 30px;
 }
 .icon-clr{
-  color: orange;
+  color: rgb(255, 180, 5);
+}
+.color{
+  color: gray;
+}
+.price-clr{
+  color: rgba(243, 87, 60, 0.835);
 }
 @media only screen and (max-width: 768px) {
   #all-products {

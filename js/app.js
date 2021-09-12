@@ -18,16 +18,15 @@ const showProducts = (products) => {
       <img class="product-image" src=${product.image}></img>
     </div>
       <h3>${product.title.slice(0, 20)}</h3>
-      <p>Category: ${product.category}
+      <p class="color">Category: ${product.category}
       <br>
-      Rate: ${product.rating.rate} <i class="fas fa-star-half-alt icon-clr"></i>
-      <br>
-      Count: ${product.rating.count}
+      <span class="color">${product.rating.rate}<i class="fas fa-star icon-clr"></i>(${product.rating.count})</span>
       </p>
       
-      <h2>Price:$ ${product.price}</h2>
+      <h2 class="price-clr">$${product.price}</h2>
+      
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button>
+      <button onclick="details(${product.id})" class="btn btn-danger">Details</button>
   </div>
       `
       ;
@@ -45,7 +44,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  const converted = parseFloat(element);
+  const converted = parseInt(element);
   return converted;
 };
 
@@ -89,4 +88,29 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal;
 };
+// products detalis show
+const details = id => {
+ const url =`https://fakestoreapi.com/products/${id}`
+ console.log(url)
+ fetch(url)
+ .then(res => res.json())
+ .then(data => displayDetails(data))
+};
 
+const displayDetails= product =>{
+  console.log(product)
+  const detalis = document.getElementById("show-details");
+  detalis.textContent='';
+  const div = document.createElement('div')
+  div.innerHTML=`
+  <div class="card border-0" style="width: 30rem;">
+  <img src="${product.image}" class="card-img-top" alt="..."  width="100px">
+  <div class="card-body">
+    <h3>${product.title}</h3>
+    <p class="card-text">${product.description.slice(0, 150)}</p>
+  </div>
+</div>
+  `
+  detalis.appendChild(div);
+  
+}

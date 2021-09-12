@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My-Store</title>
+  <title>Fashion-Thunder</title>
+  <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon">
   <link rel="stylesheet" href="./css/style.css" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -21,17 +22,25 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+
+  </header>
   <main class="main container">
       <div class="">
-        <div class="input-group m-5">
+        <img class="d-flex justify-content-center" src="images/logo.png" alt="logo" width="100px">
+        <div class="input-group mb-3">
           <input type="text" class="form-control search-field" placeholder="search Your products" aria-describedby="button-addon2">
           <button onclick="loadProducts()" class="btn btn-outline-primary search-button" type="button" id="button-addon2">Search</button>
         </div>
     </div>
     <br>
+    <!-- simgle products details -->
+    
+      
+    </div>
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
+        <div id="show-details" class="text-center d-flex justify-content-center m-5 p-3 "></div>
         <div id="all-products" class="">
 
         </div>
@@ -86,7 +95,9 @@
         </div>
       </div>
     </div>
+    
   </main>
+
   <footer></footer>
 
   <!-- add javascript  file  -->
