@@ -25,7 +25,7 @@ const showProducts = (products) => {
       
       <h2 class="price-clr">$${product.price}</h2>
       
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+      <button onclick="addToCart(${product.id}, ${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button onclick="details(${product.id})" class="btn btn-danger">Details</button>
   </div>
       `
@@ -117,3 +117,14 @@ const displayDetails = product => {
   detalis.appendChild(div);
 
 }
+const buyNow=()=> {
+  const respon = confirm('Are you sure buy this products')
+  console.log(respon)
+  if (respon == true) {
+    const next=  confirm('Thank u for buying our products');
+}
+else{
+  return;
+};
+};
+
