@@ -38,9 +38,9 @@ body {
   transition: 0.6s;
 }
 .single-product:hover {
-  box-shadow: 4px 4px 7px gray;
+  box-shadow: 4px 4px 7px rgb(207, 207, 207);
+  border: hidden;
   border-radius: 10px;
-  border: 1px solid;
 }
 .product-image {
   width: 150px;
