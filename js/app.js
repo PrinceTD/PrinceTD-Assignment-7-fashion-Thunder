@@ -33,6 +33,7 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -44,7 +45,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  const converted = parseInt(element);
+  const converted = parseFloat(element);
   return converted;
 };
 
@@ -52,15 +53,16 @@ const getInputValue = (id) => {
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
+  console.log(convertPrice.toFixed(2))
   const total = convertedOldPrice + convertPrice;
-  document.getElementById(id).innerText = Math.round(total);
+  document.getElementById(id).innerText = total.toFixed(2);
   updateTotal()
   updateTaxAndCharge()
 };
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = Math.round(value);
+  document.getElementById(id).innerText = value.toFixed(2);
 };
 
 // update delivery charge and total Tax
@@ -86,23 +88,24 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
-};
-// products detalis show
-const details = id => {
- const url =`https://fakestoreapi.com/products/${id}`
- console.log(url)
- fetch(url)
- .then(res => res.json())
- .then(data => displayDetails(data))
+  document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
-const displayDetails= product =>{
+// products detalis show
+const details = id => {
+  const url = `https://fakestoreapi.com/products/${id}`
+  console.log(url)
+  fetch(url)
+    .then(res => res.json())
+    .then(data => displayDetails(data))
+};
+
+const displayDetails = product => {
   console.log(product)
   const detalis = document.getElementById("show-details");
-  detalis.textContent='';
+  detalis.textContent = '';
   const div = document.createElement('div')
-  div.innerHTML=`
+  div.innerHTML = `
   <div class="card border-0" style="width: 30rem;">
   <img src="${product.image}" class="card-img-top" alt="..."  width="100px">
   <div class="card-body">
@@ -112,5 +115,5 @@ const displayDetails= product =>{
 </div>
   `
   detalis.appendChild(div);
-  
+
 }
